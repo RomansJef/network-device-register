@@ -1,8 +1,8 @@
-package com.register.app.service;
+package com.register.app.impl;
 
-import static com.register.app.service.ListNewDevicesService.ACCESS_POINT;
-import static com.register.app.service.ListNewDevicesService.SWITCH;
-import static com.register.app.service.ListNewDevicesService.GATEWAY;
+import static com.register.app.impl.ListNewDevicesService.ACCESS_POINT;
+import static com.register.app.impl.ListNewDevicesService.SWITCH;
+import static com.register.app.impl.ListNewDevicesService.GATEWAY;
 
 import com.register.app.entities.DeviceEntity;
 import com.register.app.RegisterRepository;
@@ -14,6 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.List;
 
+import com.register.app.service.iGetAllDevicesTreeService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ import static java.util.stream.Collectors.*;
  */
 @Log4j2
 @Service
-public class GetAllDevicesTreeService {
+public class GetAllDevicesTreeService implements iGetAllDevicesTreeService {
 
     private final RegisterRepository registerRepository;
 

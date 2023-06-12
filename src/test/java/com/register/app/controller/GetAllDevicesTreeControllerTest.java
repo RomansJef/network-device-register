@@ -1,18 +1,17 @@
 package com.register.app.controller;
 
 import com.register.app.RegisterController;
-import com.register.app.entities.ResponseEntity;
+import com.register.app.impl.GetAllDevicesTreeService;
 import com.register.app.response.GetAllDevicesTreeResponse;
-import com.register.app.response.GetDevicesSortedByTypeResponse;
-import com.register.app.service.GetAllDevicesTreeService;
-import com.register.app.service.GetDeviceByMacAddressService;
-import com.register.app.service.GetDeviceTopologyService;
-import com.register.app.service.GetDevicesSortedByTypeService;
-import com.register.app.service.ListNewDevicesService;
+import com.register.app.service.iGetDeviceByMacAddressService;
+import com.register.app.service.iGetDeviceTopologyService;
+import com.register.app.service.iGetDevicesSortedByTypeService;
+import com.register.app.service.iListNewDevicesService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,15 +28,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(MockitoJUnitRunner.class)
 public class GetAllDevicesTreeControllerTest {
-  private final ListNewDevicesService listNewDevicesService = mock(ListNewDevicesService.class);
+  private final iListNewDevicesService listNewDevicesService = mock(iListNewDevicesService.class);
   private final GetAllDevicesTreeService getAllDevicesTreeService =
       mock(GetAllDevicesTreeService.class);
-  private final GetDeviceByMacAddressService getDeviceByMacAddressService =
-      mock(GetDeviceByMacAddressService.class);
-  private final GetDevicesSortedByTypeService getDevicesSortedByTypeService =
-      mock(GetDevicesSortedByTypeService.class);
-  private final GetDeviceTopologyService getDeviceTopologyService =
-      mock(GetDeviceTopologyService.class);
+  private final iGetDeviceByMacAddressService getDeviceByMacAddressService =
+      mock(iGetDeviceByMacAddressService.class);
+  private final iGetDevicesSortedByTypeService getDevicesSortedByTypeService =
+      mock(iGetDevicesSortedByTypeService.class);
+  private final iGetDeviceTopologyService getDeviceTopologyService =
+      mock(iGetDeviceTopologyService.class);
   private final RegisterController registerController =
       new RegisterController(
           listNewDevicesService,

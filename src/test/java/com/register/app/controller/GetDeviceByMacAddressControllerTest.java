@@ -1,10 +1,10 @@
 package com.register.app.controller;
 
+import com.register.app.RegisterController;
 import com.register.app.request.GetDeviceByMacAddressRequest;
 import com.register.app.service.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.register.app.entities.DeviceEntity;
-import com.register.app.RegisterController;
 import com.register.app.response.GetDeviceByMacAddressResponse;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -25,11 +25,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(MockitoJUnitRunner.class)
 public class GetDeviceByMacAddressControllerTest {
-    private final ListNewDevicesService listNewDevicesService = mock(ListNewDevicesService.class);
-    private final GetAllDevicesTreeService getAllDevicesTreeService = mock(GetAllDevicesTreeService.class);
-    private final GetDeviceByMacAddressService getDeviceByMacAddressService = mock(GetDeviceByMacAddressService.class);
-    private final GetDevicesSortedByTypeService getDevicesSortedByTypeService = mock(GetDevicesSortedByTypeService.class);
-    private final GetDeviceTopologyService getDeviceTopologyService = mock(GetDeviceTopologyService.class);
+    private final iListNewDevicesService listNewDevicesService = mock(iListNewDevicesService.class);
+    private final iGetAllDevicesTreeService getAllDevicesTreeService = mock(iGetAllDevicesTreeService.class);
+    private final iGetDeviceByMacAddressService getDeviceByMacAddressService = mock(iGetDeviceByMacAddressService.class);
+    private final iGetDevicesSortedByTypeService getDevicesSortedByTypeService = mock(iGetDevicesSortedByTypeService.class);
+    private final iGetDeviceTopologyService getDeviceTopologyService = mock(iGetDeviceTopologyService.class);
 
     private GetDeviceByMacAddressResponse getDeviceByMacAddressResponse;
     private final RegisterController registerController =

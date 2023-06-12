@@ -1,26 +1,26 @@
-package com.register.app.service;
-
-import static com.register.app.service.ListNewDevicesService.ACCESS_POINT;
-import static com.register.app.service.ListNewDevicesService.SWITCH;
-import static com.register.app.service.ListNewDevicesService.GATEWAY;
+package com.register.app.impl;
 
 import com.register.app.RegisterRepository;
 import com.register.app.entities.DeviceEntity;
 import com.register.app.entities.ResponseEntity;
 import com.register.app.response.GetDevicesSortedByTypeResponse;
+import com.register.app.service.iGetDevicesSortedByTypeService;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.extern.log4j.Log4j2;
-import org.springframework.stereotype.Service;
+import static com.register.app.impl.ListNewDevicesService.ACCESS_POINT;
+import static com.register.app.impl.ListNewDevicesService.GATEWAY;
+import static com.register.app.impl.ListNewDevicesService.SWITCH;
 
 /**
  * Return all devices stored in DB and sort by type.
  */
 @Log4j2
 @Service
-public class GetDevicesSortedByTypeService {
+public class GetDevicesSortedByTypeService implements iGetDevicesSortedByTypeService {
     private final RegisterRepository registerRepository;
 
     public GetDevicesSortedByTypeService(RegisterRepository registerRepository) {

@@ -1,19 +1,18 @@
-package com.register.app.service;
+package com.register.app.impl;
 
-import com.register.app.entities.DeviceEntity;
 import com.register.app.RegisterRepository;
+import com.register.app.entities.DeviceEntity;
 import com.register.app.request.NewDeviceRequest;
 import com.register.app.response.ListNewDevicesResponse;
-
-import java.time.LocalDateTime;
-import java.util.UUID;
-
+import com.register.app.service.iListNewDevicesService;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.Validate;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,7 +21,7 @@ import java.util.regex.Pattern;
  */
 @Log4j2
 @Service
-public class ListNewDevicesService {
+public class ListNewDevicesService implements iListNewDevicesService {
     private final RegisterRepository registerRepository;
     public static final String ACCESS_POINT = "Access Point";
     public static final String SWITCH = "Switch";

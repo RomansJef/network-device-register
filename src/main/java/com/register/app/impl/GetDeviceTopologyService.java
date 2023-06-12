@@ -1,13 +1,13 @@
-package com.register.app.service;
-
-import static com.register.app.service.ListNewDevicesService.ACCESS_POINT;
-import static com.register.app.service.ListNewDevicesService.SWITCH;
-import static com.register.app.service.ListNewDevicesService.GATEWAY;
+package com.register.app.impl;
 
 import com.register.app.RegisterRepository;
 import com.register.app.entities.DeviceEntity;
 import com.register.app.request.GetDeviceByMacAddressRequest;
 import com.register.app.response.GetDeviceTopologyResponse;
+import com.register.app.service.iGetDeviceTopologyService;
+import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.Validate;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,10 +17,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.lang3.Validate;
-import org.springframework.stereotype.Service;
-
+import static com.register.app.impl.ListNewDevicesService.ACCESS_POINT;
+import static com.register.app.impl.ListNewDevicesService.GATEWAY;
+import static com.register.app.impl.ListNewDevicesService.SWITCH;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
@@ -30,7 +29,7 @@ import static java.util.stream.Collectors.toList;
  */
 @Log4j2
 @Service
-public class GetDeviceTopologyService {
+public class GetDeviceTopologyService implements iGetDeviceTopologyService {
     private final RegisterRepository registerRepository;
 
     public GetDeviceTopologyService(RegisterRepository registerRepository) {

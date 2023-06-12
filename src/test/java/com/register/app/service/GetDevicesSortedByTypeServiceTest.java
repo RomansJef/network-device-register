@@ -3,6 +3,7 @@ package com.register.app.service;
 import com.register.app.RegisterRepository;
 import com.register.app.entities.DeviceEntity;
 import com.register.app.entities.ResponseEntity;
+import com.register.app.impl.GetDevicesSortedByTypeService;
 import com.register.app.response.GetDevicesSortedByTypeResponse;
 
 import java.time.LocalDateTime;

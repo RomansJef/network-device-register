@@ -2,6 +2,7 @@ package com.register.app.service;
 
 import com.register.app.RegisterRepository;
 import com.register.app.entities.DeviceEntity;
+import com.register.app.impl.GetAllDevicesTreeService;
 import com.register.app.response.GetAllDevicesTreeResponse;
 
 import java.time.LocalDateTime;

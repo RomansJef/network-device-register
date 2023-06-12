@@ -2,13 +2,24 @@ package com.register.app;
 
 import com.register.app.request.GetDeviceByMacAddressRequest;
 import com.register.app.request.NewDeviceRequest;
-import com.register.app.response.*;
-import com.register.app.service.*;
+import com.register.app.response.GetAllDevicesTreeResponse;
+import com.register.app.response.GetDeviceByMacAddressResponse;
+import com.register.app.response.GetDeviceTopologyResponse;
+import com.register.app.response.GetDevicesSortedByTypeResponse;
+import com.register.app.response.ListNewDevicesResponse;
+import com.register.app.service.iGetAllDevicesTreeService;
+import com.register.app.service.iGetDeviceByMacAddressService;
+import com.register.app.service.iGetDeviceTopologyService;
+import com.register.app.service.iGetDevicesSortedByTypeService;
+import com.register.app.service.iListNewDevicesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,18 +30,18 @@ import java.util.List;
 @RestController
 public class RegisterController {
 
-  private final ListNewDevicesService listNewDevicesService;
-  private final GetAllDevicesTreeService getAllDevicesTreeService;
-  private final GetDeviceByMacAddressService getDeviceByMacAddressService;
-  private final GetDevicesSortedByTypeService getDevicesSortedByTypeService;
-  private final GetDeviceTopologyService getDeviceTopologyService;
+  private final iListNewDevicesService listNewDevicesService;
+  private final iGetAllDevicesTreeService getAllDevicesTreeService;
+  private final iGetDeviceByMacAddressService getDeviceByMacAddressService;
+  private final iGetDevicesSortedByTypeService getDevicesSortedByTypeService;
+  private final iGetDeviceTopologyService getDeviceTopologyService;
 
   public RegisterController(
-          ListNewDevicesService listNewDevicesService,
-          GetAllDevicesTreeService getAllDevicesTreeService,
-          GetDeviceByMacAddressService getDeviceByMacAddressService,
-          GetDevicesSortedByTypeService getDevicesSortedByTypeService,
-          GetDeviceTopologyService getDeviceTopologyService) {
+          iListNewDevicesService listNewDevicesService,
+          iGetAllDevicesTreeService getAllDevicesTreeService,
+          iGetDeviceByMacAddressService getDeviceByMacAddressService,
+          iGetDevicesSortedByTypeService getDevicesSortedByTypeService,
+          iGetDeviceTopologyService getDeviceTopologyService) {
     this.listNewDevicesService = listNewDevicesService;
     this.getAllDevicesTreeService = getAllDevicesTreeService;
     this.getDeviceByMacAddressService = getDeviceByMacAddressService;

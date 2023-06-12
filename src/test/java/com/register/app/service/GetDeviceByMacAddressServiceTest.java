@@ -2,6 +2,7 @@ package com.register.app.service;
 
 import com.register.app.entities.DeviceEntity;
 import com.register.app.RegisterRepository;
+import com.register.app.impl.GetDeviceByMacAddressService;
 import com.register.app.request.GetDeviceByMacAddressRequest;
 import com.register.app.response.GetDeviceByMacAddressResponse;
 

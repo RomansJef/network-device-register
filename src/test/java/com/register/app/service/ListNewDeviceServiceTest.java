@@ -2,6 +2,7 @@ package com.register.app.service;
 
 import com.register.app.RegisterRepository;
 import com.register.app.entities.DeviceEntity;
+import com.register.app.impl.ListNewDevicesService;
 import com.register.app.request.NewDeviceRequest;
 import com.register.app.response.ListNewDevicesResponse;
 

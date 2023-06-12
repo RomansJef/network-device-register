@@ -1,9 +1,10 @@
-package com.register.app.service;
+package com.register.app.impl;
 
-import com.register.app.entities.DeviceEntity;
 import com.register.app.RegisterRepository;
+import com.register.app.entities.DeviceEntity;
 import com.register.app.request.GetDeviceByMacAddressRequest;
 import com.register.app.response.GetDeviceByMacAddressResponse;
+import com.register.app.service.iGetDeviceByMacAddressService;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.Validate;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import java.util.regex.Pattern;
  */
 @Log4j2
 @Service
-public class GetDeviceByMacAddressService {
+public class GetDeviceByMacAddressService implements iGetDeviceByMacAddressService {
 
     private final RegisterRepository registerRepository;
 
